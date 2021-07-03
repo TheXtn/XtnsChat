@@ -38,14 +38,17 @@ const Signup = () => {
   return data
 }
 const router=useRouter()
+  const [loading,setloading]=useState(false)
   const [name,setname]=useState("")
   const [password,setpwd]=useState("")
   const [email,setemail]=useState("")
   const [showPassword, setShowPassword] = useState(false);
   async function hsubmit(e){
     e.preventDefault()
+    setloading(true)
     const res=await createuser(email,password,name)
     if (res.message==='User Exist'){
+      setloading(false)
       toast({
           title: "Error.",
           description: res.message,
@@ -55,6 +58,7 @@ const router=useRouter()
         })
     }
     else {
+      setloading(false)
       toast({
           title: "Welcome.",
           description: "You can login now",
@@ -129,16 +133,18 @@ const router=useRouter()
                 </FormHelperText>
               </FormControl>
               <Button
+                  disabled={loading}
                 borderRadius={0}
                 type="submit"
                 variant="solid"
                 colorScheme="teal"
                 width="full"
               >
-                Login
+                SignUp
               </Button>
             </Stack>
           </form>
+          {loading?<Progress size="xs" isIndeterminate />:""}
         </Box>
       </Stack>
       <Box>
