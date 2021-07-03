@@ -43,7 +43,7 @@ position= 'fixed'
    width='100%'
    height='60px'   /* Height of the footer */
 
-     bottom='0'
+
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
