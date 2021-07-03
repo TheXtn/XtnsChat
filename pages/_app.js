@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
 
 
   return(
-<Provider session={pageProps.session}>
+
 <ChakraProvider>
 
 <Lay>{loading?<Progress size="xs" isIndeterminate />:<Component {...pageProps} />}</Lay>
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
 
 
 </ChakraProvider>
-</Provider>
+
       )
 
 }
