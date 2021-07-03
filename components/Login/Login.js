@@ -92,18 +92,15 @@ const Login = () => {
                 <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
-                    children={<CFaUserAlt color="gray.300" />}
-                  />
+                  ><CFaUserAlt color="gray.300" /></InputLeftElement>
                   <Input value={email} type="email" placeholder="Email address" onChange={(e)=>setemail(e.target.value)} />
                 </InputGroup>
               </FormControl>
               <FormControl>
                 <InputGroup>
-                  <InputLeftElement
+                   <InputLeftElement
                     pointerEvents="none"
-                    color="gray.300"
-                    children={<CFaLock color="gray.300" />}
-                  />
+                  ><CFaLock color="gray.300" /></InputLeftElement>
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"

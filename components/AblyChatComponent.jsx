@@ -28,7 +28,7 @@ const AblyChatComponent = (props) => {
   });
 
   const sendChatMessage = (messageText) => {
-    channel.publish({ name: "Test", data: messageText });
+    channel.publish({ name: session.user.name, data: messageText });
     setMessageText("");
 
   }

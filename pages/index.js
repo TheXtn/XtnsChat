@@ -33,7 +33,7 @@ export default function Home(props) {
 
       <main>
         <h1 className="title">Next.js Chat by yussef</h1>
-        <AblyChatComponent />
+        <AblyChatComponent session={session} />
       </main>
 
       <footer>
