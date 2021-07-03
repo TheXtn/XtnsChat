@@ -12,6 +12,9 @@ import {
   IconButton
 } from '@chakra-ui/react'
 const AblyChatComponent = (props) => {
+  useEffect(()=>{
+    channel.publish({ name: "System", data: session.user.name+' Has joined' });
+  },[])
   const session=props.session
 
 
