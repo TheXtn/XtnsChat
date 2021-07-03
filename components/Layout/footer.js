@@ -56,12 +56,7 @@ position= 'fixed'
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Text>© Made with ♥ By Yussef mrt</Text>
- <Switch
-          color="green"
-        align="center"
-          isChecked={isDark}
-          onChange={toggleColorMode}
-        />
+
       </Container>
     </Box>
   );

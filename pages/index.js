@@ -4,7 +4,7 @@ import {useSession} from "next-auth/client";
 import {getSession} from "next-auth/client";
 import {Flex, Stack} from "@chakra-ui/react";
 import {Fragment} from "react";
-
+import { Heading } from "@chakra-ui/react"
 const AblyChatComponent = dynamic(() => import('../components/AblyChatComponent'), { ssr: false });
 
 export default function Home(props) {
@@ -32,7 +32,9 @@ export default function Home(props) {
       </Head>
 
       <main>
-        <h1 className="title">Next.js Chat by yussef</h1>
+        <h1 className="title"><Heading as="h1" size="3xl" isTruncated>
+   Xtn's Chat
+  </Heading></h1>
         <AblyChatComponent session={session} />
       </main>
 

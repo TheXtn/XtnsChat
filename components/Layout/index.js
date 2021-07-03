@@ -116,7 +116,12 @@ export const Nav = () => {
           onClick={() => changeDisplay('flex')}
           display={['flex', 'flex', 'none', 'none']}
         />
-
+        <Switch
+          color="green"
+        align="center"
+          isChecked={isDark}
+          onChange={toggleColorMode}
+        />
       </Flex>
 
       {/* Mobile Content */}
@@ -210,7 +215,7 @@ export const Nav = () => {
           {session&&(
 
             <Button
-                onClick={()=>{
+               onClick={()=>{
                     hlogout()
                     changeDisplay('none')
                 }}
@@ -219,6 +224,7 @@ export const Nav = () => {
               aria-label="Profile"
               my={5}
               w="100%"
+
             >
               Logout
                     </Button>
