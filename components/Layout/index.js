@@ -210,13 +210,15 @@ export const Nav = () => {
           {session&&(
 
             <Button
-                onClick={hlogout}
+                onClick={()=>{
+                    hlogout()
+                    changeDisplay('none')
+                }}
               as="a"
               variant="ghost"
               aria-label="Profile"
               my={5}
               w="100%"
-                onClick={() => changeDisplay('none')}
             >
               Logout
                     </Button>
