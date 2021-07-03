@@ -33,7 +33,7 @@ export default function Home(props) {
 
       <main>
         <h1 className="title"><Heading as="h1" size="3xl" isTruncated>
-   Xtn's Chat
+   Xtns Chat
   </Heading></h1>
         <AblyChatComponent session={session} />
       </main>
