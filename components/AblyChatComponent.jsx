@@ -80,7 +80,7 @@ const AblyChatComponent = (props) => {
           placeholder="Type a message..."
           onChange={e => setMessageText(e.target.value)}
           onKeyPress={handleKeyPress}
-            placeholder="Type anything" size="lg" />
+             />
 
         <button type="submit" className={styles.button} disabled={messageTextIsEmpty}>Send</button>
       </form>
