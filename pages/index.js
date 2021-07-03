@@ -8,6 +8,7 @@ import {Fragment} from "react";
 const AblyChatComponent = dynamic(() => import('../components/AblyChatComponent'), { ssr: false });
 
 export default function Home(props) {
+  const session=props.session
 
   return (
       <Fragment>
@@ -32,7 +33,7 @@ export default function Home(props) {
 
       <main>
         <h1 className="title">Next.js Chat by yussef</h1>
-        <AblyChatComponent session={props.session} />
+        <AblyChatComponent session={session} />
       </main>
 
       <footer>
