@@ -77,7 +77,7 @@ const AblyChatComponent = (props) => {
             variant="unstyled"
             ref={(element) => { inputBox = element; }}
           value={messageText}
-          placeholder="Type a message..."
+          placeholder=" Type a message..."
           onChange={e => setMessageText(e.target.value)}
           onKeyPress={handleKeyPress}
              />
