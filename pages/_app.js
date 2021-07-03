@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
   return(
 
 <ChakraProvider>
-
+<title>Yussef Chat App</title>
 <Lay>{loading?<Progress size="xs" isIndeterminate />:<Component {...pageProps} />}</Lay>
 
 

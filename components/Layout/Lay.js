@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import {Nav} from "./index";
+import SmallWithSocial from "./footer";
 
 
 function Lay(props) {
@@ -7,6 +8,7 @@ function Lay(props) {
     <Fragment>
       <Nav/>
       <main>{props.children}</main>
+        <SmallWithSocial/>
     </Fragment>
   );
 }

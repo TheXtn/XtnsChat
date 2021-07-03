@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import classes from './lay.module.css'
 import {
-  Skeleton,
-  useColorMode,
-  Switch,
-  Flex,
-  Button,
-  IconButton
+    Skeleton,
+    useColorMode,
+    Switch,
+    Flex,
+    Button,
+    IconButton, Box
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
@@ -116,14 +116,7 @@ export const Nav = () => {
           onClick={() => changeDisplay('flex')}
           display={['flex', 'flex', 'none', 'none']}
         />
-        <Switch
-          color="green"
 
-        right="1rem"
-        align="center"
-          isChecked={isDark}
-          onChange={toggleColorMode}
-        />
       </Flex>
 
       {/* Mobile Content */}
@@ -164,34 +157,72 @@ export const Nav = () => {
               aria-label="Home"
               my={5}
               w="100%"
+              onClick={() => changeDisplay('none')}
             >
               Home
                     </Button>
           </Link>
 
-          <Link href="/login" passHref>
+          {!session && (
+              <Link href="/login" passHref>
             <Button
               as="a"
               variant="ghost"
               aria-label="Login"
               my={5}
               w="100%"
+              onClick={() => changeDisplay('none')}
             >
               Login
                     </Button>
           </Link>
+          )}
 
-          <Link href="/signup" passHref>
+          {!session&&(
+     <Link href="/signup" passHref>
             <Button
               as="a"
               variant="ghost"
               aria-label="Contact"
               my={5}
               w="100%"
+              onClick={() => changeDisplay('none')}
             >
               Sign Up
-            </Button>
+                    </Button>
           </Link>
+)}
+ {session&&(
+               <Link href="/profile" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              aria-label="Profile"
+              my={5}
+              w="100%"
+              onClick={() => changeDisplay('none')}
+            >
+              Profile
+                    </Button>
+          </Link>
+          )
+          }
+          {session&&(
+
+            <Button
+                onClick={hlogout}
+              as="a"
+              variant="ghost"
+              aria-label="Profile"
+              my={5}
+              w="100%"
+                onClick={() => changeDisplay('none')}
+            >
+              Logout
+                    </Button>
+
+          )
+          }
         </Flex>
       </Flex>
     </Flex>
