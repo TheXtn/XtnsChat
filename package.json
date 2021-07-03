@@ -9,9 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/icons": "^1.0.13",
+    "@chakra-ui/react": "^1.6.4",
+    "@emotion/core": "^10.0.28",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@types/express": "^4.17.12",
+    "ably": "^1.2.5-beta.1",
+    "antd": "^4.16.6",
+    "bcryptjs": "^2.4.3",
+    "chakra-ui": "^0.3.9",
+    "emotion-theming": "^10.0.27",
+    "express": "^4.17.1",
+    "framer-motion": "^4.1.17",
+    "mongodb": "^3.6.9",
     "next": "11.0.1",
+    "next-auth": "^3.27.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
+    "react-scripts": "^4.0.3",
+    "socket-io": "^1.0.0",
+    "socket.io": "^4.1.2",
+    "socket.io-client": "^4.1.2"
   },
   "devDependencies": {
     "eslint": "7.29.0",
