@@ -2,7 +2,7 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import {useSession} from "next-auth/client";
 import {getSession} from "next-auth/client";
-import {Flex, Stack} from "@chakra-ui/react";
+import {Flex, Stack, useColorModeValue} from "@chakra-ui/react";
 import {Fragment} from "react";
 import { Heading } from "@chakra-ui/react"
 const AblyChatComponent = dynamic(() => import('../../components/AblyChatComponent'), { ssr: false });
@@ -32,7 +32,7 @@ export default function Home(props) {
       </Head>
 
       <main>
-        <h1 className="title"><Heading as="h1" size="3xl" isTruncated>
+        <h1 className="title"><Heading color={useColorModeValue('black', 'white')} as="h1" size="3xl" isTruncated>
    Xtns Chat
   </Heading></h1>
         <AblyChatComponent session={session} />
