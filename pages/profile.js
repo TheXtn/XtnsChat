@@ -1,11 +1,28 @@
-import {getSession} from "next-auth/client";
-import {Box, Button, Divider, Flex, Heading, ScaleFade, Stack, Text, useColorModeValue} from "@chakra-ui/react"
-import {Center} from "@chakra-ui/react";
-import Link from "next/link";
+import Link from 'next/link'
+import {
+    Fade, ScaleFade, Slide, SlideFade,
+    Divider,
+    Box,
+    Heading,
+    Text,
+    Button,
+    Center,
+    Square,
+    Circle,
+    Stack,
+    Flex,
+    useColorModeValue
+} from "@chakra-ui/react"
+import {useState} from "react";
 
-export default function login(){
+export default function Home(){
+    const [anim,setanim]=useState(false)
     return(
-         <Flex
+
+
+
+
+        <Flex
       flexDirection="column"
       width="100wh"
       height="100vh"
@@ -24,9 +41,9 @@ export default function login(){
 
                 <ScaleFade reverse={true} initialScale={10} in={true}>
   <Box maxW="32rem">
-  <Heading  color={useColorModeValue("black","white")} mb={4}>Profile Page</Heading>
+  <Heading  color={useColorModeValue("black","white")} mb={4}>Profile page</Heading>
   <Text fontSize="xl">
-    Manage your account here.
+    Manage your account here
   </Text>
       <Divider colorScheme={'purple'} size={"300"}/>
       <br/>
@@ -44,20 +61,4 @@ export default function login(){
         </Flex>
 
     )
-}
-export async function getServerSideProps(context){
-  const session=await getSession({req:context.req})
-  if (!session){
-    return {
-      redirect:{
-        destination:'/login',
-        permanent:false
-      }
-    }
-  }
-  return {
-    props:{
-      session
-    }
-  }
 }
