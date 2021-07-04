@@ -2,7 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useChannel } from "./AblyReactEffect";
 import styles from './AblyChatComponent.module.css';
 import {useSession} from "next-auth/client";
+import { useBeforeunload } from 'react-beforeunload';
 import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  useColorModeValue,
+  Heading,
+  Grid,
+    Box,
+    GridItem ,
   Input,
   Skeleton,
   useColorMode,
@@ -11,20 +21,25 @@ import {
   Button,
   IconButton
 } from '@chakra-ui/react'
+
 const AblyChatComponent = (props) => {
+
+
   useEffect(()=>{
-    channel.publish({ name: "System", data: session.user.name+' Has joined' });
+    channel2.publish({ name: "", data: session.user.name+' Has joined' });
+
   },[])
   const session=props.session
-
-
   let inputBox = null;
   let messageEnd = null;
-
+  const [Logs, setLogs] = useState([]);
   const [messageText, setMessageText] = useState("");
   const [receivedMessages, setMessages] = useState([]);
   const messageTextIsEmpty = messageText.trim().length === 0;
-
+  const [channel2, ably2] = useChannel("Logs", (Lg) => {
+    const history2 = Logs.slice(-199);
+    setLogs([...history2, Lg]);
+  });
   const [channel, ably] = useChannel("chat-demo", (message) => {
     const history = receivedMessages.slice(-199);
     setMessages([...history, message]);
@@ -64,15 +79,39 @@ const AblyChatComponent = (props) => {
 
     )
   });
+const Alllogs = Logs.map((dataa, index) => {
 
+    return(
+        <div key={dataa.data}>
+          <Alert status="info">
+    <AlertIcon />
+    {dataa.data}
+  </Alert>
+<br/>
+
+        </div>
+
+    )
+  });
   useEffect(() => {
     messageEnd.scrollIntoView({ behaviour: "smooth" });
   });
 
   return (
-    <div className={styles.chatHolder}>
+      <Flex>
+        <Box bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')} w="100%" p={4} >
+          <div className={styles.chatHolder}>
+      <div className={styles.chatText}>
+
+          {Alllogs}
+          </div>
+            </div>
+</Box>
+<Box  w="300%" p={4} >
+  <div className={styles.chatHolder}>
       <div className={styles.chatText}>
         {messages}
+
         <div ref={(element) => { messageEnd = element; }}></div>
       </div>
       <form onSubmit={handleFormSubmission} className={styles.form}>
@@ -87,7 +126,13 @@ const AblyChatComponent = (props) => {
 
         <button type="submit" className={styles.button} disabled={messageTextIsEmpty}>Send</button>
       </form>
+
+
     </div>
+</Box>
+
+</Flex>
+
   )
 }
 
