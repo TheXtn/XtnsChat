@@ -56,7 +56,7 @@ position= 'fixed'
         spacing={4}
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
-        <Text>© Made with ♥ By Yussef mrt</Text>
+        <Text>© Made with ❤️ By <a href={'https://yussefmrt.ga'}>Yussef mrt</a> </Text>
         <DarkModeSwitch/>
       </Container>
     </Box>
