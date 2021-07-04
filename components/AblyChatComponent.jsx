@@ -100,6 +100,7 @@ const Alllogs = Logs.map((dataa, index) => {
   return (
       <Flex>
         <Box bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')} w="100%" p={4} >
+          <Heading>Notifications</Heading>
           <div className={styles.chatHolder}>
       <div className={styles.chatText}>
 
