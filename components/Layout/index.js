@@ -107,6 +107,7 @@ export const Nav = () => {
 
         {/* Mobile */}
         <IconButton
+            bg={"transparent"}
           aria-label="Open Menu"
           size="lg"
           mr={2}
@@ -116,12 +117,7 @@ export const Nav = () => {
           onClick={() => changeDisplay('flex')}
           display={['flex', 'flex', 'none', 'none']}
         />
-        <Switch
-          color="green"
-        align="center"
-          isChecked={isDark}
-          onChange={toggleColorMode}
-        />
+
       </Flex>
 
       {/* Mobile Content */}
@@ -140,6 +136,7 @@ export const Nav = () => {
       >
         <Flex justify="flex-end">
           <IconButton
+              bg={"transparent"}
             mt={2}
             mr={2}
             aria-label="Open Menu"
