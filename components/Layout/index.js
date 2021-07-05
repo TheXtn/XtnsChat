@@ -44,7 +44,7 @@ export const Nav = () => {
               my={5}
               w="100%"
             >
-              Home
+             HOME
                     </Button>
           </Link>
 {!session && (
@@ -56,7 +56,7 @@ export const Nav = () => {
               my={5}
               w="100%"
             >
-              Login
+                  LOGIN
                     </Button>
           </Link>
           )}
@@ -70,7 +70,7 @@ export const Nav = () => {
               my={5}
               w="100%"
             >
-              Sign Up
+              SIGNUP
                     </Button>
           </Link>
 )}
@@ -83,7 +83,7 @@ export const Nav = () => {
               my={5}
               w="100%"
             >
-              Profile
+             PROFILE
                     </Button>
           </Link>
           )
@@ -98,7 +98,7 @@ export const Nav = () => {
               my={5}
               w="100%"
             >
-              Logout
+             LOGOUT
                     </Button>
 
           )

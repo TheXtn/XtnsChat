@@ -21,10 +21,13 @@ import {
   Button,
   IconButton
 } from '@chakra-ui/react'
+import {useRouter} from "next/router";
+import Link from "next/link"
 
 const AblyChatComponent = (props) => {
-
-
+  const router=useRouter()
+  const room=props.room
+  const roomlogs=room+'logs'
   useEffect(()=>{
     channel2.publish({ name: "", data: session.user.name+' Has joined' });
 
@@ -36,11 +39,11 @@ const AblyChatComponent = (props) => {
   const [messageText, setMessageText] = useState("");
   const [receivedMessages, setMessages] = useState([]);
   const messageTextIsEmpty = messageText.trim().length === 0;
-  const [channel2, ably2] = useChannel("Logs", (Lg) => {
+  const [channel2, ably2] = useChannel(roomlogs, (Lg) => {
     const history2 = Logs.slice(-199);
     setLogs([...history2, Lg]);
   });
-  const [channel, ably] = useChannel("chat-demo", (message) => {
+  const [channel, ably] = useChannel(room, (message) => {
     const history = receivedMessages.slice(-199);
     setMessages([...history, message]);
   });
@@ -99,14 +102,20 @@ const Alllogs = Logs.map((dataa, index) => {
 
   return (
       <Flex>
-        <Box bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')} w="100%" p={4} >
+        <Box bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')} w="100%" h={"100%"} p={4} >
+
           <Heading color={useColorModeValue('blackAlpha.500', 'whiteAlpha.500')}>Notifications</Heading>
+
           <div className={styles.chatHolder}>
       <div className={styles.chatText}>
 
           {Alllogs}
           </div>
             </div>
+          <Link href={"/chat"}>
+              <Button colorScheme="teal" >Rooms List</Button>
+          </Link>
+
 </Box>
 <Box  w="300%" p={4} >
   <div className={styles.chatHolder}>

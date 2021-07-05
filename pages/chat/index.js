@@ -1,167 +1,23 @@
-import Head from 'next/head'
-import dynamic from 'next/dynamic'
-import { ChakraProvider, Box, Text, Select } from '@chakra-ui/react'
-import { ChevronDownIcon } from '@chakra-ui/icons'
+import {useColorModeValue, chakra, Center, Heading, Grid, Box, GridItem, Stack, Flex} from "@chakra-ui/react"
+import Ma from "../../components/UI/Card";
+export default function ch(){
+    return(
 
-import {useSession} from "next-auth/client";
-import {getSession} from "next-auth/client";
-import {Flex, Stack, useColorModeValue} from "@chakra-ui/react";
-import {Fragment} from "react";
-import { Heading } from "@chakra-ui/react"
-const AblyChatComponent = dynamic(() => import('../../components/AblyChatComponent'), { ssr: false });
-
-export default function Home(props) {
-  const session=props.session
-
-  return (
-      <Fragment>
-
-      <Flex
-      flexDirection="column"
-      width="100%"
-      height="100%"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Stack
-        flexDir="column"
-        mb="2"
-        justifyContent="center"
-        alignItems="center"
-      >
-    <div className="container">
-      <Head>
-        <title>Xtns Chat</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title"><Heading color={useColorModeValue('black', 'white')} as="h1" size="3xl" isTruncated>
-   Xtns Chat
-  </Heading></h1>
-        <AblyChatComponent session={session} />
-      </main>
-
-      <footer>
+        <Center h="100px">
 
 
-      </footer>
 
-      <style jsx>{`
-        .container {
-          display: grid;
-          grid-template-rows: 1fr 100px;
-          min-height: 100vh;
-         
-        }
-        main {
-          display: grid;
-          grid-template-rows: auto 1fr;
-          width: calc(100% - 40px);
-          max-width: 900px;
-          margin: 20px auto;
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0px 3px 10px 1px rgba(0,0,0,0.2);
-          
-        }
-        .title {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100px;
-          margin: 0;
-          color: white;
-          background: #005C97;
-          background: -webkit-linear-gradient(to right, #363795, #005C97);
-          background: linear-gradient(to right, #363795, #005C97);
-        }
-        footer {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-          width: 100vw;
-          height: 100px;
-        }
-        .logo {
-          display: block;
-          height: 20px;
-          margin: 0.5em;
-        }
-        .svg { 
-          fill:#005C97; 
-          color:#fff; 
-          position: absolute; 
-          top: 0; 
-          border: 0; 
-          right: 0; 
-        }
-        .octo-arm {
-          transform-origin: 130px 106px;
-        }
-        .github-corner:hover .octo-arm {
-          animation: octocat-wave 560ms ease-in-out;
-        }
-        
-        @keyframes octocat-wave {
-          0%, 100%{transform:rotate(0)}
-          20%,60%{transform:rotate(-25deg)}
-          40%,80%{transform:rotate(10deg)}}
-        }
-        @media (min-width: 600px) {
-          .logo {
-            height: 40px;
-            margin: 1em;
-          }
-  
-          .ably {
-            height: 60px;
-          }
-        }
-       
-      `}</style>
+        <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+    <Box w="100%" h="10"  >
+        <Ma title={"Public Room"} desc={"10 users"} link={"/chat/public"} img={"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"}></Ma>
+    </Box>
+             <Box w="100%" h="10"  >
+        <Ma title={"Private Room 1"} desc={"5 users"} link={"/chat/pv1"} img={"https://images.unsplash.com/photo-1574790398664-0cb03682ed1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"}></Ma>
+    </Box>
 
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-        [data-author="me"] {
-          background: linear-gradient(to right, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-          color: white;
-          align-self: flex-end;
-          border-bottom-right-radius: 0!important;
-          border-bottom-left-radius: 10px!important;
-        }
-        
-      `}</style>
-         </div>
-         </Stack>
-      </Flex>
-</Fragment>
-  )
-}
-export async function getServerSideProps(context){
-  const session=await getSession({req:context.req})
-  if (!session){
-    return {
-      redirect:{
-        destination:'/login',
-        permanent:false
-      }
-    }
-  }
-  return {
-    props:{
-      session
-    }
-  }
+</Grid>
+</Center>
+
+        )
+
 }

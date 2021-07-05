@@ -14,6 +14,7 @@ import {
     useColorModeValue
 } from "@chakra-ui/react"
 import {useState} from "react";
+import Mod from "../components/UI/Modal";
 
 export default function Home(){
     const [anim,setanim]=useState(false)
@@ -47,10 +48,8 @@ export default function Home(){
   </Text>
       <Divider colorScheme={'purple'} size={"300"}/>
       <br/>
+  <Mod/>
 
-                <Button colorScheme="teal" size="lg">
-    Settings
-  </Button>
 
 </Box>
                      </ScaleFade>
@@ -58,6 +57,7 @@ export default function Home(){
 
 
         </Stack>
+
         </Flex>
 
     )
