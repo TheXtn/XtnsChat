@@ -11,6 +11,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
 import {signOut, useSession} from "next-auth/client";
+import ToggleTheme from "../DarkModeSwitch";
 
 export const Nav = () => {
   async function hlogout(){
@@ -23,6 +24,7 @@ export const Nav = () => {
   return (
 
          <Flex>
+             <ToggleTheme/>
       <Flex
 
         top="1rem"
@@ -100,7 +102,7 @@ export const Nav = () => {
                     </Button>
 
           )
-          }
+           }
 
         </Flex>}
 

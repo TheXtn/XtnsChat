@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
-import {DarkModeSwitch} from "../DarkModeSwitch";
+
 
 const SocialButton = () => {
   return (
@@ -57,7 +57,7 @@ position= 'fixed'
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Text>© Made with ❤️ By <a href={'https://yussefmrt.ga'}>Yussef mrt</a> </Text>
-        <DarkModeSwitch/>
+
       </Container>
     </Box>
   );
