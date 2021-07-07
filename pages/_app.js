@@ -14,6 +14,8 @@ const { Header, Content, Footer, Sider } = Layout;
 import "@fontsource/akaya-kanadaka/400.css"
 import "@fontsource/anonymous-pro/400.css"
 import "@fontsource/nanum-gothic/700.css"
+import "@fontsource/raleway/400.css"
+import "@fontsource/open-sans/700.css"
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {

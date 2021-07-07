@@ -1,8 +1,8 @@
 import { extendTheme } from "@chakra-ui/react"
 const theme = extendTheme({
   fonts: {
-    heading: "Nanum Gothic",
-    body: "Nanum Gothic",
+    heading: "Open Sans",
+    body: "Raleway"
   },
 })
 export default theme
