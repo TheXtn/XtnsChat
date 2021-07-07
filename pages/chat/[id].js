@@ -7,14 +7,22 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 import {useSession} from "next-auth/client";
 import {getSession} from "next-auth/client";
 import {Flex, Stack, useColorModeValue} from "@chakra-ui/react";
-import {Fragment} from "react";
+import {Fragment, useEffect} from "react";
 import { Heading } from "@chakra-ui/react"
 const AblyChatComponent = dynamic(() => import('../../components/AblyChatComponent'), { ssr: false });
 
 export default function Home(props) {
-  const session=props.session
-     const router=useRouter()
+     const session=props.session
+    const router=useRouter()
      const roomid=router.query['id']
+
+    useEffect(()=>{
+
+
+
+    },[])
+
+
   return (
       <Fragment>
 
@@ -74,7 +82,7 @@ export default function Home(props) {
           height: 100px;
           margin: 0;
           color: white;
-          background: #005C97;
+          background: #008080;
           background: -webkit-linear-gradient(to right, #363795, #005C97);
           background: linear-gradient(to right, #363795, #005C97);
         }
@@ -127,11 +135,8 @@ export default function Home(props) {
       <style jsx global>{`
         html,
         body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+          
+         
         }
         * {
           box-sizing: border-box;
@@ -153,6 +158,16 @@ export default function Home(props) {
 }
 export async function getServerSideProps(context){
   const session=await getSession({req:context.req})
+    if (!session){
+    return {
+      redirect:{
+        destination:'/login',
+        permanent:false
+      }
+    }
+  }
+     const name=session.user.name
+    const email=session.user.email
     if (!(context.params.id=="public" || context.params.id=="pv1")){
         return {
       redirect:{
@@ -161,14 +176,31 @@ export async function getServerSideProps(context){
       }
     }
     }
-  if (!session){
-    return {
+
+  if (context.params.id=="public"){
+      return {
+    props:{
+      session
+    }
+  }
+  }
+  const res=await fetch(process.env.APISERVER+'/api/rooms/checkforuser/'+context.params.id,{
+    method:'POST',
+    body:JSON.stringify({name,email}),
+    headers:{
+      'Content-Type':'application/json'
+    }
+  })
+
+  const data=await res.json()
+            if (data.message==false){
+                return {
       redirect:{
-        destination:'/login',
+        destination:'/roomlogin/'+context.params.id,
         permanent:false
       }
     }
-  }
+            }
   return {
     props:{
       session

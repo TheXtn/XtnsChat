@@ -3,6 +3,8 @@ import { useChannel } from "./AblyReactEffect";
 import styles from './AblyChatComponent.module.css';
 import {useSession} from "next-auth/client";
 import { useBeforeunload } from 'react-beforeunload';
+import { SimpleGrid } from "@chakra-ui/react"
+
 import {
   Alert,
   AlertIcon,
@@ -23,6 +25,7 @@ import {
 } from '@chakra-ui/react'
 import {useRouter} from "next/router";
 import Link from "next/link"
+import DrawerExample from "./UI/userslist";
 
 const AblyChatComponent = (props) => {
   const router=useRouter()
@@ -112,9 +115,11 @@ const Alllogs = Logs.map((dataa, index) => {
           {Alllogs}
           </div>
             </div>
+            <SimpleGrid columns={2} spacing={10}>
           <Link href={"/chat"}>
-              <Button colorScheme="teal" >Rooms List</Button>
+              <Button colorScheme="teal" >←</Button>
           </Link>
+                <DrawerExample/></SimpleGrid>
 
 </Box>
 <Box  w="300%" p={4} >

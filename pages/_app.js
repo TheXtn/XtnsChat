@@ -9,9 +9,11 @@ import React from "react";
 import Router from 'next/router'
 import {Provider} from "next-auth/client";
 import Lay from "../components/Layout/Lay";
-
+import theme from "../theme"
 const { Header, Content, Footer, Sider } = Layout;
-
+import "@fontsource/akaya-kanadaka/400.css"
+import "@fontsource/anonymous-pro/400.css"
+import "@fontsource/nanum-gothic/400.css"
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
@@ -36,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 
   return(
 
-<ChakraProvider>
+<ChakraProvider theme={theme}>
 <title>Yussef Chat App</title>
 <Lay>{loading?<Progress size="xs" isIndeterminate />:<Component {...pageProps} />}</Lay>
 
