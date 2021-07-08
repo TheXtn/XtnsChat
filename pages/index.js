@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react"
 import {Fragment, useState} from "react";
 import NextImage from "next/image";
-import img from "../public/DATABASE.svg";
+import img from "../public/coding.svg";
 
 export default function Home(){
     const [anim,setanim]=useState(false)
