@@ -133,7 +133,7 @@ const RoomLogin = () => {
                 disabled={loading}
               >
 
-                Login
+                Join
               </Button>
             </Stack>
 

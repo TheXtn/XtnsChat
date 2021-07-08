@@ -9,22 +9,26 @@ import {
   DrawerCloseButton,
     Button,
     useDisclosure,
+    Spinner,
     Heading,Avatar, Badge, Box, Flex, Text
 } from "@chakra-ui/react"
 import {useRouter} from "next/router";
+import LeaveRoom from "./leavechanel";
 
 export default function DrawerExample() {
   const router=useRouter()
   const id=router.query['id']
   const [users,setusers]=useState([])
+    const [loading,setloading]=useState(false)
   useEffect(()=>{
 
     const fetchdata=async ()=>{
+        setloading(true)
       const res=await fetch("/api/rooms/roomusers/"+id)
           const data=await res.json()
       setusers(Object.keys(data.message[0]))
 
-
+setloading(false)
     }
     if (id!="public"){
       fetchdata()
@@ -76,12 +80,12 @@ export default function DrawerExample() {
           <DrawerHeader>Users have access to this room</DrawerHeader>
 
           <DrawerBody>
-            {showusers}
+              {loading?<Spinner size="xl" />:showusers}
 
           </DrawerBody>
 
           <DrawerFooter>
-            <Button colorScheme="blue">Leave room</Button>
+           <LeaveRoom/>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

@@ -6,16 +6,16 @@ export default function Homechat(props){
     const rooms=props.rooms
     const showrooms=rooms.map((room)=>{
         return(
-            <Box key={room._id} w="100%" h="10"  >
+            <Box key={room._id} w="100%" h="100%"  >
         <Ma title={room.title} desc={room.desc} link={"chat/"+room.link} img={room.img}></Ma>
     </Box>
         )
     })
     return(
 
-        <Center h="100px">
+        <Center w="100%" h="100%" h="100px">
 
-        <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+        <Grid w="100%" h="100%" templateColumns="repeat(5, 1fr)" gap={6}>
             {showrooms}
 
 </Grid>

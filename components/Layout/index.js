@@ -6,7 +6,7 @@ import {
     Switch,
     Flex,
     Button,
-    IconButton, Box
+    IconButton, Box, useColorModeValue
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
@@ -88,6 +88,20 @@ export const Nav = () => {
           </Link>
           )
           }
+           {session&&(
+               <Link href="/chat" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              aria-label="CHAT"
+              my={5}
+              w="100%"
+            >
+             CHAT
+                    </Button>
+          </Link>
+          )
+          }
           {session&&(
 
             <Button
@@ -126,7 +140,7 @@ export const Nav = () => {
       <Flex
         w='100vw'
         display={display}
-        bgColor="gray.50"
+        bgColor={useColorModeValue('gray.50', 'gray.900')}
         zIndex={20}
         h="100vh"
         pos="fixed"
@@ -138,9 +152,12 @@ export const Nav = () => {
       >
         <Flex justify="flex-end">
           <IconButton
+              top="1.1rem"
+        right="90%"
+      mr={{ base: 2, md: 0 }}
               bg={"transparent"}
             mt={2}
-            mr={2}
+
             aria-label="Open Menu"
             size="lg"
             icon={
@@ -207,6 +224,21 @@ export const Nav = () => {
               onClick={() => changeDisplay('none')}
             >
               Profile
+                    </Button>
+          </Link>
+          )
+          }
+          {session&&(
+               <Link href="/chat" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              aria-label="Chat"
+              my={5}
+              w="100%"
+              onClick={() => changeDisplay('none')}
+            >
+              Chat
                     </Button>
           </Link>
           )

@@ -1,32 +1,11 @@
-import Link from 'next/link'
-import {
-    Fade, ScaleFade, Slide, SlideFade,
-    Divider,
-    Box,
-    Heading,
-    Text,
-    Button,
-    Center,
-    Square,
-    Circle,
-    Stack,
-    Flex,
-    useColorModeValue
-} from "@chakra-ui/react"
-import {Fragment, useState} from "react";
-import NextImage from "next/image";
-import img from "../public/DATABASE.svg";
-
-export default function Home(){
-    const [anim,setanim]=useState(false)
+import {Box, Button, Divider, Heading, ScaleFade, Text, useColorModeValue} from "@chakra-ui/react"
+import NextImage from "next/image"
+import img from "../public/code-review-bro.png"
+import Link from "next/link";
+export default function tet(){
+const isOdd = (num) => num % 2
     return(
-
-
-
-
-         <Box
- min-height='100%'
-    height='100%'
+        <Box
             d={{ lg: "flex" }}
             justifyContent={{ lg: "center" }}
             alignItems={{ lg: "center" }}
@@ -49,7 +28,7 @@ export default function Home(){
             </Box>
 
             <Box w={{ lg: "50%" }}>
-              <ScaleFade reverse={true} initialScale={3} in={true}>
+              <ScaleFade reverse={true} initialScale={10} in={true}>
   <Box maxW="32rem">
   <Heading  color={useColorModeValue("black","white")} mb={4}>This is a realtime Nextjs Chat app</Heading>
   <Text fontSize="xl">
@@ -67,10 +46,6 @@ export default function Home(){
 </Box>
                      </ScaleFade>
             </Box>
-             <br/>
-              <br/>
-               <br/>
           </Box>
-
     )
 }

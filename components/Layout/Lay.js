@@ -5,7 +5,9 @@ import SmallWithSocial from "./footer";
 
 function Lay(props) {
   return (
-    <Fragment>
+    <Fragment
+
+    >
       <Nav/>
       <main>{props.children}</main>
         <SmallWithSocial/>

@@ -40,7 +40,7 @@ export default function Home(){
             <Center  h="100px">
 
 
-                <ScaleFade reverse={true} initialScale={10} in={true}>
+                <ScaleFade reverse={true} initialScale={3} in={true}>
   <Box maxW="32rem">
   <Heading  color={useColorModeValue("black","white")} mb={4}>Profile page</Heading>
   <Text fontSize="xl">
