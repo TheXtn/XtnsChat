@@ -13,7 +13,7 @@ export default function Homechat(props){
     })
     return(
 
-        <Center w="100%" h="100%" h="100px">
+        <Center w="100%" h="100%" >
 
         <Grid w="100%" h="100%" templateColumns="repeat(5, 1fr)" gap={6}>
             {showrooms}
