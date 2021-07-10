@@ -7,7 +7,7 @@ export default function Homechat(props){
     const showrooms=rooms.map((room)=>{
         return(
             <Box key={room._id} w="100%" h="100%"  >
-        <Ma title={room.title} desc={room.desc} link={"chat/"+room.link} img={room.img}></Ma>
+        <Ma title={room.title} desc={room.desc} link={"chat/"+room.link} img={room.img} owner={room.owner}></Ma>
     </Box>
         )
     })

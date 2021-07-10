@@ -3,7 +3,7 @@ import { chakra, Box, Flex, useColorModeValue } from "@chakra-ui/react";
 import Link from 'next/link'
 
 const Ma = (props) => {
-  const {title,desc,link,img}=props
+  const {title,desc,link,img,owner}=props
   return (
     <Flex
       p={50}
@@ -62,7 +62,7 @@ const Ma = (props) => {
               fontWeight="bold"
               color={useColorModeValue("gray.800", "gray.200")}
             >
-              {desc}
+              Owner :{owner}
             </chakra.span>
             <chakra.button
               bg="gray.800"
