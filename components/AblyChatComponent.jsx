@@ -33,7 +33,7 @@ const AblyChatComponent = (props) => {
   const roomlogs=room+'logs'
   useEffect(()=>{
     channel2.publish({ name: "", data: session.user.name+' Has joined' });
-     return () => channel2.publish({ name: "", data: session.user.name+' Has Left' })
+     return () => channel2.publish({ name: "", data: session.user.name+' Has Left,pm' })
 
   },[])
   const session=props.session

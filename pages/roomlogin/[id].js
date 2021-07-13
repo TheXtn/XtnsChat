@@ -156,9 +156,10 @@ const RoomLogin = () => {
 export default RoomLogin;
 export async function getServerSideProps(context){
   const session=await getSession({req:context.req})
-     const name=session.user.name
-    const email=session.user.email
-    if (!(context.params.id=="public" || context.params.id=="pv1")){
+    const req= await fetch(process.env.APISERVER+'/api/rooms/getroomsids')
+    const resi=await req.json()
+    const room=resi.message
+    if (!(room.includes(context.params.id))){
         return {
       redirect:{
         destination:'/',

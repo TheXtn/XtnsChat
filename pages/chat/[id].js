@@ -16,11 +16,7 @@ export default function Home(props) {
     const router=useRouter()
      const roomid=router.query['id']
 
-    useEffect(()=>{
 
-
-
-    },[])
 
 
   return (
@@ -168,7 +164,10 @@ export async function getServerSideProps(context){
   }
      const name=session.user.name
     const email=session.user.email
-    if (!(context.params.id=="public" || context.params.id=="pv1")){
+    const req= await fetch(process.env.APISERVER+'/api/rooms/getroomsids')
+    const resi=await req.json()
+    const room=resi.message
+    if (!(room.includes(context.params.id))){
         return {
       redirect:{
         destination:'/',
