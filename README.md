@@ -1,19 +1,18 @@
-This is a [Next.js] Web App
-
 ## About
 
-This is a real time chat using Nextjs for back and front
+Real Time chat
 
 ## Tech Used
+NextJS
 
-Mongodb:
-User registeration.
-Next-Auth:
-Auth api manangment.
-Ably:
-Websockets service provider
-ChakraUi:
-UI Helper.
+Mongodb
+
+Next-Auth
+
+Ably
+
+ChakraUi
+
 ## How it works
 
 Just create account https://xtnchat.vercel.app/signup and join the chat .
